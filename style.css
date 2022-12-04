@@ -222,16 +222,74 @@ select {
   font-size: var(--fs-600);
 }
 
-.padding-block-900 {
-  padding-block: var(--size-900);
-}
 .padding-block-700 {
   padding-block: var(--size-700);
+}
+.padding-block-900 {
+  padding-block: var(--size-900);
 }
 
 .display-sm-none {
   display: none;
 }
 
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 50em){
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
 /* ====== CSS Reset end ====== */
  
+ 
+/* ====== general styling ====== */
+body {
+  font-style: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+}
+ 
+ 
+/* ====== button ====== */
+.button {
+  border: 0;
+  text-decoration: none;
+  border-radius: 100vmax;
+  padding: 1.25em 2.5em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+  box-shadow: 0.5em 1.125em 1em -1em var(--clr-accent-500);
+  cursor: pointer;
+}
+
+.button[data-type="inverted"]{
+  color: var(--clr-accent-400);
+  background-color: var(--clr-neutral-100);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--clr-accent-300);
+}
+ 
+.button[data-type="inverted"]:hover, .button[data-type="inverted"]:focus-visible {
+  color: var(--clr-accent-300);
+  background-color: var(--clr-neutral-100);
+}
